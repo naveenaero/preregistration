@@ -1,4 +1,7 @@
 function [] = nii2nc(filenm)
+% needs the NIFTI matlab module to be present in the path
+% filenm - path to .nii file
+% output - .nc file of same name
 
 if filenm(end-3:end)=='.nii'
     image = load_nii(filenm);

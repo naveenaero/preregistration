@@ -1,0 +1,19 @@
+function [  ] = GenerateNCfile( filenm, data)
+%GenerateNCfile creates/overwrites a classic netcdf-4 file
+%   data is stored in the container 'data'
+%   filenm is the path to file name without extension
+%   data contains the user supplied data
+[nx,ny,nz] = size(data);
+filenm = [filenm, '.nc'];
+varnm = 'data';
+if exist(filenm, 'file') ~=2
+    % if the file doesn't exist create one!
+    nccreate(filenm, varnm, 'Dimensions',{'r',nx, 'c',ny, 'h',nz},'Format','classic');
+    ncwrite(filenm, varnm, data);
+    fprintf('%s generated\n.........\n',filenm);
+else
+    % if it already exists, overwrite it
+    fprintf('file already exists!\noverwriting data\n..........\n');
+    ncwrite(filenm, varnm, data);
+end
+end

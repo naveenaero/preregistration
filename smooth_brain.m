@@ -2,7 +2,6 @@ function [ ] = smooth_brain( filenm, sigma )
 % filenm - path to .nii/.nc file
 % sigma - gaussian filter smoothing kernel standard deviation
 % output - new .nii/.nc file with smoothed data
-
 if filenm(end-3:end)=='.nii'
     oldimage = load_nii(filenm);
     newimage = imgaussfilt3(oldimage.img,sigma);

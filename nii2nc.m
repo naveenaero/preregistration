@@ -8,7 +8,12 @@ if filenm(end-3:end)=='.nii'
     imgarr = image.img;
     newfilenm=filenm(1:end-4);
     GenerateNCfile(newfilenm, imgarr);
+elseif filenm(end-6:end)=='.nii.gz'
+    image = load_nii(filenm);
+    imgarr = image.img;
+    newfilenm=filenm(1:end-7);
+    GenerateNCfile(newfilenm, imgarr);
 else
-    fprintf('Provide .nii file only. exiting\n');
+    fprintf('Provide .nii or .nii.gz file only. exiting\n');
 end
 end

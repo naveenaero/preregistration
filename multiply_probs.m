@@ -8,7 +8,7 @@ newdata = data1.*data2;
 newdata(newdata>1)=1;
 newdata(newdata<0)=0;
 %create new .nc file
-GenerateNCfile(newdata, newfilenm);
+GenerateNCfile(newfilenm, newdata);
 
 end
 

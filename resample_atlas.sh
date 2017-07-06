@@ -10,9 +10,9 @@ jakob=jakob
 atlas=atlas
 threads=4
 
-for label in bg csf wm gm
+for label in csf vt
 do
 oldfile=$jakob$uscore$label$uscore$oldgrid$niiext
 newfile=$atlas$uscore$newgrid$uscore$label$niiext
-mirtk resample-image $oldfile $newfile -interp CSpline -imsize $newgrid $newgrid $newgrid -threads $threads
+mirtk resample-image $oldfile $newfile -interp NN -imsize $newgrid $newgrid $newgrid -threads $threads
 done

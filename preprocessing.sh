@@ -65,6 +65,7 @@ transform_modality ()
 }
 
 patient_preprocessing()
+# NOTE: this function is hardcoded to handle input patient files of the type ${patient}_${mod}.nii.gz where ${patient} is the name of the directory containing input image modalities(${mod}) i.e. t1,t2,t1ce,flair
 # $1 is the name in string format of the patient directory which contains all the input modality images
 # $2 is the path to input data
 # $3 is the path to output data (preprocessed data)

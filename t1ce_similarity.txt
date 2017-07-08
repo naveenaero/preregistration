@@ -1,1 +1,0 @@
-Target = Brats17_2013_10_1_t1ce, Source = Brats17_2013_10_1_t1ce_n4bias, CC = 0.99988, NMI = 1.6995, SSD = 5.2139e-06

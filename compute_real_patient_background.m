@@ -3,7 +3,7 @@ function [] = compute_real_patient_background(grid,label)
 %   Detailed explanation goes here
 for j=1:length(label)
     patient = char(label(j));
-    fprintf('%s',patient);
+    fprintf('%s\n',patient);
     cd(['/Users/naveenhimthani/Documents/Projects/brats/AA',patient,'/',num2str(grid),'_files'])
     bg = ones(grid,grid,grid);
     for i=1:9
@@ -12,8 +12,9 @@ for j=1:length(label)
     end
     bg(bg>1)=1;
     bg(bg<0)=0;
-    bg = make_nii(bg);
-    save_nii(bg, ['scan_atlas_posterior_',num2str(0),'.nii.gz']);
+    temp = load_nii('scan_atlas_posterior_1.nii.gz');
+    temp.img = bg;
+    save_nii(temp, ['scan_atlas_posterior_',num2str(0),'.nii.gz']);
 end
 
 end

@@ -20,7 +20,7 @@ elseif filenm(end-6:end)=='.nii.gz'
     if strcmp(newext,'.nii') || strcmp(newext,'.nii.gz')
         newimage = make_nii(newimage);
         save_nii(newimage, newfilenm);
-    elseif strcmp(newext,'.nc')
+    elseif strcmp(newext,'')
         GenerateNCfile(newfilenm,newimage);
     end
 
@@ -28,7 +28,7 @@ elseif filenm(end-6:end)=='.nii.gz'
 elseif filenm(end-2:end)=='.nc'
     oldimage = ncread(filenm, 'data');
     newimage = imgaussfilt3(oldimage,sigma);
-    newfilenm=[filenm(1:end-3),'_sigma',num2str(sigma),newext];
+    newfilenm=[filenm(1:end-7),'_sigma',num2str(sigma),newext];
     if newext=='.nii' || newext=='.nii.gz'
         newimage = make_nii(newimage);
         save_nii(newimage, newfilenm);
